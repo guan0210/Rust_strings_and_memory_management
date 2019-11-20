@@ -9,6 +9,8 @@ and a set of tests for a (missing) `disemvowel` function.
 You should write the missing `disemvowel` function so that the
 tests all pass.
 
+Use `cargo test` to run the tests.
+
 The solution is just a few lines. There are no doubt a _lot_
 of different ways to do this, and I don't claim to know Rust
 well enough to know the "right" or "best" way. That said,
