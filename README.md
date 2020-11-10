@@ -1,5 +1,7 @@
 # Rust Disemvowel
 
+[![Rust tests](../../workflows/RustTests/badge.svg)](../../actions?query=workflow%3A"RustTests")
+
 This is a simple lab where we'll use Rust to
 implement the `disemvowel` function that we covered
 [in a previous C lab](https://github.com/UMM-CSci-Systems/C-strings-and-memory-management#disemvowel).
