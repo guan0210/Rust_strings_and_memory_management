@@ -32,37 +32,54 @@ And you can run the tests by using
 
 The two data types you will be working with in this lab are [Strings](https://doc.rust-lang.org/book/ch08-02-strings.html#storing-utf-8-encoded-text-with-strings) and [Vectors](https://doc.rust-lang.org/book/ch08-01-vectors.html).
 
-Vectors are a variable sized collection that can store data of the same type. You can not have a vector with both numbers and strings in it, but you can add or remove as many strings as you want to a vector. You can create a vector in a few ways.
+Vectors are a variable sized collection that can store data of the same type; it is fairly similar to something like ```ArrayList``` in Java. You can not have a vector with both numbers and strings in it, but you can add or remove as many items as you want to a vector. You can create a vector in a few ways.
 
-      let v = vec![1, 2, 3, 4, 5]; //Initializes a vector containing 5 numbers.
-      
-      let v2 = Vec::new(); //Initializes an empty vector
+```rust
+      //Initializes a vector containing 5 numbers.
+      let v = vec![1, 2, 3, 4, 5]; 
 
-Strings store text data, but are a vector of characters behind the scenes. You initialize a String as follows.
+      //Initializes an empty vector
+      let v2 = Vec::new(); 
+```
 
+The `String` data type in Rust stores text data, but those are implemented as a vector of characters behind the scenes. You initialize a `String` in a number of ways, including.
+
+```rust
       let s = String::from("Hello World");
-      
-
+```
 
 #### Ownership
 
-The main method of ensuring memory safety that Rust uses is [ownership](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html). Ownership means that only one variable can own a value at a given time. This is important because it means that when that owner goes out of scope (ie when the function returns), the value can be safely dropped. If two variables were pointing to that variable we would not be able to drop the value as the other variable could still exist.
+The main method of ensuring memory safety that Rust uses is [ownership](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html). Ownership means that only one variable can _own_ a value at a given time. This is important because it means that when that owner goes out of scope (e.g., when the function returns), the value can be safely dropped. If two variables were pointing to that value we would not be able to drop the value as the other variable could still exist and need
+the value.
 
-To get around this restriction, [borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html) is used to allow a variable to have a read only pointer or a reference to a value. This allows a new variable to take the same value as another without taking ownership. This is often used to pass a value to a function without getting rid of the original value.
+To get around this restriction, [borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html) is used to allow a variable to have a _read-only pointer_ or _reference_ to a value. This allows a new variable to take the same value as another without taking ownership. This is often used to pass a value to a function without losing ownership of the original value.
 
-        let s = String::from("Hello");
-        let len = calculate_length(&s);
-        
-        fn calculate_length(str: &String) -> usize {
-            s.len()
-        }
+In this snippet, for example, if we didn't use `&s` to indicate
+that `calculate_length` is borrowing the string (instead of
+taking ownership of it), then we wouldn't be able to print `s`
+after the call to `calculate_length` because we would have lost
+ownership over `s`.
+
+```rust
+    let s = String::from("Hello");
+    let len = calculate_length(&s);
+    println!("{}", s);
+    
+    fn calculate_length(str: &String) -> usize {
+        s.len()
+    }
+```
 
 ### Panics and Error Handling
 
-Rust has a few methods of handling errors or missing values, but the one we will be focusing on is the [Panic](https://doc.rust-lang.org/book/ch09-01-unrecoverable-errors-with-panic.html). When your code reaches an unrecoverable error, you can use the panic! macro to terminate the code with a custom error messsage. 
+Rust has a few methods of handling errors or missing values, but the one we will be focusing on is the [Panic](https://doc.rust-lang.org/book/ch09-01-unrecoverable-errors-with-panic.html). When your code reaches an unrecoverable error, you can use the `panic!` macro to terminate the code with a custom error messsage
+such as:
 
+```rust
      panic!("There's a problem!");
-     
+```
 
 ## Disemvowel
+
 As you've done in your prior lab, "Disemvoweling" is the act of removing all the vowels ('a', 'e', 'i', 'o', and 'u', both upper and lowercase) from a piece of text. This time your code will take an input and output file as arguments and write the disemvoweled contents of the input file to the output file. You will finish a few lines of code to read and write to files, then finish the disemvowel function. Make sure your code passes all cargo tests. 
