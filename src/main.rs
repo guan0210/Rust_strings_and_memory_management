@@ -98,32 +98,10 @@ mod tests {
             )
         }
     }
-    mod file_read_write {
-        use super::*;
-        #[test]
-        fn reads_file() {
-            let dir = tempfile::tempdir().expect("Could not create tempdir");
-            let file_path = dir.path().join("read.txt");
-            let f: fs::File = fs::File::create(&file_path).expect("Could not create tempfile");
-            fs::write(&file_path, "Hello, world!").expect("Unable to write file");
-            assert_eq!("Hello, world!", read_file(&file_path));
-            drop(f);
-            dir.close().expect("Could not remove tempdir");
-        }
-        #[test]
-        fn writes_file() {
-            let dir = tempfile::tempdir().expect("Could not create tempdir");
-            let file_path = dir.path().join("read.txt");
-            let f: fs::File = fs::File::create(&file_path).expect("Could not create tempfile");
-            write_file(&file_path, "Hello, world!");
-            assert_eq!(
-                "Hello, world!",
-                fs::read_to_string(file_path).expect("Could not read the file")
-            );
-            drop(f);
-            dir.close().expect("Could not remove tempdir");
-        }
-    }
+
+    // Tests that check that the correct panics are generated when
+    // there aren't the correct number of command line arguments
+    // or the input file isn't readable.
     mod panic_tests {
         use super::*;
         #[test]
