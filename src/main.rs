@@ -23,7 +23,7 @@ fn main() {
     //  * Pass that to disemvowel to remove the vowels
     //  * Write the disemvoweled text using write_file
 
-    // Replace String::from("test") with what you get from read_file
+    // Replace String::from("dummy text") with what you get from read_file
     let s = String::from("dummy text");
 
     let s_disemvowel = disemvowel(&s);
