@@ -18,12 +18,19 @@ fn main() {
     //TODO: Panic if not enough arguments are provided
     //Panic should output the string "Not enough arguments"
 
-    //TODO: Pass an argument to read_file to read the original string
-    let s = String::from("test"); //They fill in arguments (correct borrow)
+    //TODO: 
+    //  * Pass an argument to read_file to read the original text
+    //  * Pass that to disemvowel to remove the vowels
+    //  * Write the disemvoweled text using write_file
+
+    // Replace String::from("test") with what you get from read_file
+    let s = String::from("dummy text");
+
     let s_disemvowel = disemvowel(&s);
 
-    //TODO: Pass arguments to write file to write the output string
-    write_file(Path::new("output.txt"), "output string");
+    // Use command-line arguments for the name of the file,
+    // and s_disemvowel for the text to write out.
+    write_file(Path::new("dummy.txt"), "output string");
 }
 
 fn read_file(path: &Path) -> String {
