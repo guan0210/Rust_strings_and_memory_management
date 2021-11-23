@@ -12,7 +12,7 @@ implement the `disemvowel` function that we covered
 
 Currently no other language promises memory safety while delivering the sort of performance seen in Rust, and in situations where speed and safety are the highest concern, Rust is becoming a more popular choice. Of all [security bugs in Microsoft software](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/), 70% of them are memory related, and Rust has been identified as a potential solution to these issues. Additionally, companies like [Discord](https://blog.discord.com/why-discord-is-switching-from-go-to-rust-a190bbca2b1f) have been moving to Rust to gain the performance benefits of the language.
 
-![70% of Microsoft security bugs are related to memory safety](https://zdnet1.cbsistatic.com/hub/i/2019/02/11/0aafd5ae-20fa-48a3-bbe6-a2251a53e664/microsoft-memory-safety-trends.png)
+![70% of Microsoft security bugs are related to memory safety](https://www.zdnet.com/a/img/resize/f918002ed5e984b1badf155bf8c7f75f01f80f81/2019/02/11/0aafd5ae-20fa-48a3-bbe6-a2251a53e664/microsoft-memory-safety-trends.png)
 
 ## Rust Background
 
