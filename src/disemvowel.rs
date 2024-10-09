@@ -13,60 +13,58 @@ pub fn disemvowel(s: &str) -> String {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
-    mod disemvowel {
-        use super::*;
-        #[test]
-        fn hello_world() {
-            let input = "Hello, world!";
-            let expected = "Hll, wrld!";
+    use super::disemvowel;
 
-            assert_eq!(expected, disemvowel(input));
-        }
+    #[test]
+    fn hello_world() {
+        let input = "Hello, world!";
+        let expected = "Hll, wrld!";
 
-        #[test]
-        fn empty() {
-            assert_eq!("", disemvowel(""));
-        }
+        assert_eq!(expected, disemvowel(input));
+    }
 
-        #[test]
-        fn no_vowels() {
-            assert_eq!("pqrst", disemvowel("pqrst"));
-        }
+    #[test]
+    fn empty() {
+        assert_eq!("", disemvowel(""));
+    }
 
-        #[test]
-        fn all_vowels() {
-            assert_eq!("", disemvowel("aeiouAEIOUOIEAuoiea"));
-        }
+    #[test]
+    fn no_vowels() {
+        assert_eq!("pqrst", disemvowel("pqrst"));
+    }
 
-        #[test]
-        fn morris_minnesota() {
-            assert_eq!("Mrrs, Mnnst", disemvowel("Morris, Minnesota"));
-        }
+    #[test]
+    fn all_vowels() {
+        assert_eq!("", disemvowel("aeiouAEIOUOIEAuoiea"));
+    }
 
-        #[test]
-        fn handle_punctuation() {
-            assert_eq!(
-                "n (nxplnd) lphnt!",
-                disemvowel("An (Unexplained) Elephant!")
-            );
-        }
+    #[test]
+    fn morris_minnesota() {
+        assert_eq!("Mrrs, Mnnst", disemvowel("Morris, Minnesota"));
+    }
 
-        #[test]
-        fn handle_unicode() {
-            assert_eq!(
-                "Sm hrglyphs: 𒐁	𒐌	𒐥	𒑳",
-                disemvowel("Some hieroglyphs: 𒐁	𒐌	𒐥	𒑳")
-            );
-            assert_eq!("Sm Lnr B: 	𐂀	𐂚	𐃃	𐃺", disemvowel("Some Linear B: 	𐂀	𐂚	𐃃	𐃺"));
-            assert_eq!(
-                " lttl Phncn: 𐤀	𐤈	𐤔	𐤕",
-                disemvowel("A little Phoenician: 𐤀	𐤈	𐤔	𐤕")
-            );
-            assert_eq!(
-                "W cn hndl mj s wll! 🤣😃👍",
-                disemvowel("We can handle emoji as well! 🤣😃👍")
-            )
-        }
+    #[test]
+    fn handle_punctuation() {
+        assert_eq!(
+            "n (nxplnd) lphnt!",
+            disemvowel("An (Unexplained) Elephant!")
+        );
+    }
+
+    #[test]
+    fn handle_unicode() {
+        assert_eq!(
+            "Sm hrglyphs: 𒐁	𒐌	𒐥	𒑳",
+            disemvowel("Some hieroglyphs: 𒐁	𒐌	𒐥	𒑳")
+        );
+        assert_eq!("Sm Lnr B: 	𐂀	𐂚	𐃃	𐃺", disemvowel("Some Linear B: 	𐂀	𐂚	𐃃	𐃺"));
+        assert_eq!(
+            " lttl Phncn: 𐤀	𐤈	𐤔	𐤕",
+            disemvowel("A little Phoenician: 𐤀	𐤈	𐤔	𐤕")
+        );
+        assert_eq!(
+            "W cn hndl mj s wll! 🤣😃👍",
+            disemvowel("We can handle emoji as well! 🤣😃👍")
+        )
     }
 }
