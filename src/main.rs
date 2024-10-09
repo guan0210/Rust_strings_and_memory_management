@@ -6,10 +6,11 @@ use std::fs;
 use std::path::Path;
 
 fn main() {
-    // This should be called with two command line arguments,
-    // both file names. The first should be the name of a file
-    // containing the text to disemvowel, and the second should
-    // be the file we want to write the disemvoweled text to.
+    // The first command line argument is the name of the executable
+    // that was called to run this program. After that should be
+    // two command line arguments, both file names. The first should
+    // be the name of a file containing the text to disemvowel,
+    // and the second should be the file we want to write the disemvoweled text to.
     let args: Vec<String> = env::args().collect();
 
     //TODO: Panic if not enough arguments are provided
@@ -53,11 +54,14 @@ fn write_file(path: &Path, s: &str) {
 mod tests {
     use assert_cmd::{assert::OutputAssertExt, cargo::CommandCargoExt};
     use predicates::prelude::predicate;
-    use std::process::Command; // Run programs // Used for writing assertions
+    use std::process::Command;
 
     #[test]
     fn requires_two_arguments() {
+        // The `Command` library lets you create and run a CLI command.
         let mut cmd = Command::cargo_bin("disemvowel-in-rust").unwrap();
+        // Add one command-line argument to this command, namely "1". The assertion
+        // below should fail because we didn't provide two arguments as required.
         cmd.arg("1");
         cmd.assert()
             .failure()
@@ -67,6 +71,8 @@ mod tests {
     #[test]
     fn requires_read_file() {
         let mut cmd = Command::cargo_bin("disemvowel-in-rust").unwrap();
+        // Provide two arguments, but both as paths to files that don't actually exist.
+        // The assertion below will fail because we couldn't open the first file.
         cmd.arg("/this/path/does/not/exist")
             .arg("output/path/does/not/matter");
         cmd.assert()
