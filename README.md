@@ -1,10 +1,10 @@
-# Rust Disemvowel
+# Rust Version: Strings and Memory Management
 
 [![Rust tests](../../workflows/RustTests/badge.svg)](../../actions?query=workflow%3A"RustTests")
 
-This is a simple lab where we'll use Rust to
-implement the `disemvowel` function that we covered
-[in a previous C lab](https://github.com/UMM-CSci-Systems/C-strings-and-memory-management#disemvowel).
+This lab assignment is the Rust version of the [C Strings and Memory Management](https://github.com/UMM-CSci-Systems/C-strings-and-memory-management). It includes three tasks: (i) Rust version of Disemvowel, in contrast to the C version of [Disemvowel](https://github.com/UMM-CSci-Systems/C-strings-and-memory-management?tab=readme-ov-file#disemvowel); (ii) Rust version of palindromes, similar to the C version of [palindromes](https://github.com/UMM-CSci-Systems/C-strings-and-memory-management?tab=readme-ov-file#fixing-palindromes) but need you to implement it in Rust; (iii) Creating memory leaks by making [cycles with reference counting](https://doc.rust-lang.org/book/ch15-06-reference-cycles.html) in Rust. This lab assignment is instructed by Prof. Nic McPhee and is built on top of the original [disemvowel-in-rust](https://github.com/UMM-CSci-Systems/disemvowel-in-rust).
+
+
 
 ## What is Rust?
 
@@ -86,6 +86,9 @@ such as:
 ```
 
 ## Disemvowel
+This is a simple lab where we'll use Rust to
+implement the `disemvowel` function that we covered
+[in a previous C lab](https://github.com/UMM-CSci-Systems/C-strings-and-memory-management#disemvowel). Please run your Rust code and submit both the code and the screenshots of the results.
 
 As you've done in your prior lab, "Disemvoweling" is the act of removing all the vowels ('a', 'e', 'i', 'o', and 'u', both upper and lowercase) from a piece of text. This time your code will take an input and output file as arguments and write the disemvoweled contents of the input file to the output file. You will finish a few lines of code to read and write to files, then finish the disemvowel function. Make sure your code passes all cargo tests.
 
@@ -134,3 +137,14 @@ to deal with it completely here. There are some edge cases where
 an accented vowel shows up in Rust as two separate chars, and
 disemvowelling can remove the vowel but leave behind a dangling
 accent. We leave addressing that for another day.
+
+## Palindromes
+Please recall the C version of [palindromes](https://github.com/UMM-CSci-Systems/C-strings-and-memory-management?tab=readme-ov-file#fixing-palindromes) and start writing a Rust version of palindromes that uses a similar reverse function. Please run your Rust code and submit both the code and the screenshots of the results.
+
+## Creating memory leaks in Rust (Extra Credit)
+Will memory-safe programming language Rust have a memory leak issue? This task aims to motivate students to [create memory leaks by making cycles with reference counting](https://doc.rust-lang.org/book/ch15-06-reference-cycles.html). Please run your Rust code and submit both the code and the screenshots of the results.
+
+
+
+
+
